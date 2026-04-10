@@ -1,1 +1,269 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
 
+body {
+    min-height: 100vh;
+    background: radial-gradient(ellipse at top, #1a2a1f, #0a0f0a);
+    font-family: 'Cinema', 'Georgia', 'Times New Roman', serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Efeito de poeira mágica */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f776174747061642d6d656469612d736572766963652f53746f7279496d6167652f35316a6b716e7835324b446455673d3d2d3935353132323237362e313634393665303133616366373262353334373937313137323932372e676966.gif');
+    background-repeat: repeat;
+    pointer-events: none;
+    animation: sparkle 8s linear infinite;
+}
+
+@keyframes sparkle {
+    0% { background-position: 0 0; }
+    100% { background-position: 100px 100px; }
+}
+
+/* Container principal */
+.container {
+    max-width: 800px;
+    width: 100%;
+    background: rgba(30, 24, 18, 0.85);
+    backdrop-filter: blur(3px);
+    border-radius: 40px 20px 40px 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5), inset 0 1px 1px rgba(255,255,200,0.2);
+    border: 1px solid rgba(218, 165, 32, 0.6);
+    padding: 25px 20px 35px;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+/* Cabeçalho */
+.hogwarts-header {
+    text-align: center;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 15px;
+}
+
+.hogwarts-header h1 {
+    font-size: 2rem;
+    letter-spacing: 3px;
+    color: #f5e7b2;
+    text-shadow: 0 0 5px #b8860b, 0 0 10px #5a3e1b;
+    font-family: 'Cinema', 'Georgia', serif;
+}
+
+.hogwarts-header p {
+    color: #ecd67a;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+/* Card de tempo */
+.timer-card {
+    background: #1e1a10;
+    border-radius: 50px;
+    padding: 12px 20px;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 10px;
+    border: 1px solid #b8860b;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5), 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.timer-label {
+    font-family: monospace;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffd966;
+    letter-spacing: 2px;
+}
+
+.timer-digits {
+    font-family: 'Courier New', monospace;
+    font-size: 2rem;
+    font-weight: bold;
+    background: #00000066;
+    padding: 5px 15px;
+    border-radius: 40px;
+    color: #ffd966;
+    text-shadow: 0 0 4px #ff9900;
+}
+
+/* ========== ESTILO DO PERGAMINHO ========== */
+.story-area {
+    background: #fdf0cf;
+    background-image: radial-gradient(circle at 25% 40%, rgba(180,130,80,0.1) 2%, transparent 2.5%);
+    border: 2px solid #b8956a;
+    border-radius: 30px 12px 30px 12px;
+    padding: 35px 30px;
+    margin: 15px 0;
+    box-shadow: 8px 8px 20px rgba(0,0,0,0.2), inset 0 1px 4px rgba(255,245,200,0.8);
+    font-family: 'Georgia', 'Times New Roman', serif;
+    color: #3b2a1f;
+    position: relative;
+}
+
+/* Rolinhos laterais do pergaminho */
+.story-area::before,
+.story-area::after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    bottom: 15px;
+    width: 10px;
+    background: linear-gradient(135deg, #d4af37, #b8860b, #8b6914);
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.story-area::before {
+    left: -5px;
+}
+
+.story-area::after {
+    right: -5px;
+}
+
+.question {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #5a3a1a;
+    margin-bottom: 15px;
+    border-left: 4px solid #b8860b;
+    padding-left: 15px;
+}
+
+.description {
+    color: #3a2a1a;
+    line-height: 1.6;
+    font-size: 1.05rem;
+}
+
+/* Opções de escolha */
+.choices {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin: 30px 0 20px;
+}
+
+.choice-btn {
+    background: linear-gradient(135deg, #f5efdf, #ede3ce);
+    border: 2px solid #c9aa3f;
+    border-radius: 60px;
+    padding: 16px 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #3a2a1a;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-family: 'Georgia', serif;
+    box-shadow: 0 5px 0 #b88b3a;
+}
+
+.choice-btn:hover {
+    background: linear-gradient(135deg, #fff3e0, #f7e5cd);
+    transform: translateY(-2px);
+    box-shadow: 0 7px 0 #b88b3a;
+    border-color: #e7c158;
+}
+
+.choice-prefix {
+    background: #d4af37;
+    color: #2c2412;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+/* Fim do jogo e botão reiniciar */
+.end-message {
+    text-align: center;
+    background: #1e291bdd;
+    border-radius: 40px;
+    padding: 30px;
+    margin-top: 20px;
+    border: 2px solid #ffd966;
+}
+
+.end-message h2 {
+    color: #ffd966;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.end-message p {
+    color: #f5e2b2;
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+}
+
+.restart-btn {
+    background: #c9aa3f;
+    border: none;
+    padding: 12px 32px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: 0.2s;
+    color: #1f2a0e;
+    font-family: monospace;
+    box-shadow: 0 3px 6px black;
+}
+
+.restart-btn:hover {
+    background: #e6bf4b;
+    transform: scale(1.02);
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.7rem;
+    color: #b89a40;
+}
+
+/* Responsivo */
+@media (max-width: 550px) {
+    .container {
+        padding: 15px;
+    }
+    .question {
+        font-size: 1.3rem;
+    }
+    .timer-digits {
+        font-size: 1.4rem;
+    }
+    .choice-btn {
+        font-size: 0.9rem;
+        padding: 12px;
+    }
+}
